@@ -1,0 +1,143 @@
+/* Hämtar in typsnitt med @import från Google fonts. */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap");
+
+body {
+  background-color: #e0e0e0;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 400;
+  color: #10100e;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Textstyling */
+h1 {
+  font-size: 2rem;
+  line-height: 1.45;
+  font-weight: 200;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06rem;
+  margin-bottom: 5rem;
+}
+
+/* Sätter max-bredd till 900px, då det känns "lagom" stort för att grafen ska se bra ut. */
+.container {
+  padding: 4rem 1rem 1rem;
+  margin: auto;
+  margin-bottom: 3rem;
+  max-width: 900px;
+}
+
+nav {
+  margin-bottom: 5rem;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  background-color: #f1f1f1;
+  border: none;
+  font-size: 0.875rem;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #cff591;
+}
+
+.btn-active {
+  background-color: #cff591;
+  /* font-weight: 600; */
+}
+
+.select-wrapper {
+  display: flex;
+  /* Flex-direction: column för att stapla label och selector på varandra. */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.select-wrapper label {
+  font-size: 0.75rem;
+}
+
+#chart-select {
+  background-color: #f1f1f1;
+  border: none;
+  appearance: none;
+  font-size: 0.875rem;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0.8rem;
+}
+
+/* Chart.js använder sin förälder för att bestämma storlek och position av canvas-elementet. Sätter position: relative, på förälderelementet för att säkerställa att canvas positioneras korrekt inom sin förälder och anpassar sin storlek vid olika skärmstorlekar. */
+.chart-container {
+  position: relative;
+  width: 100%;
+  /* Sätter fast höjd eftersom canvas annars inte verkar ta upp någon höjd i mobilt läge.  */
+  height: 500px;
+}
+/* Canvas tar upp 100% i höjd och bredd av sin förälder. */
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Styling för felmeddelande. */
+#error {
+  /* Div-elementet ligger dolt.*/
+  display: none;
+  font-size: 1.5rem;
+  font-weight: 200;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06rem;
+}
+
+/* Några justeringar vid från 768px och mindre. */
+@media (max-width: 768px) {
+  .container {
+    padding: 3rem 1rem 1rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  nav {
+    margin-bottom: 3rem;
+  }
+  .btn-wrapper {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 2rem;
+  }
+  .btn-primary {
+    font-size: 0.625rem;
+    padding: 0.75rem;
+  }
+  .select-wrapper label {
+    font-size: 0.625rem;
+  }
+  #chart-select {
+    font-size: 0.625rem;
+    padding: 0.6rem;
+  }
+}
+
+/* En sista brytpunkt där jag går ändrar höjden på canvas omslutande div för att grafen ska se okej ut även i mobilt läge. */
+@media (max-width: 576px) {
+  .chart-container {
+    height: 340px;
+  }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Examinationsuppgift" />
+    <meta name="author" content="Josefin Holgersson" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperaturer i städer</title>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Temperaturer i olika städer</h1>
+      <nav>
+        <!-- Knappar för alla städer -->
+        <div class="btn-wrapper">
+          <button class="btn-primary" id="btn-huskvarna">Huskvarna</button>
+          <button class="btn-primary" id="btn-trollhattan">Trollhättan</button>
+          <button class="btn-primary" id="btn-sthlm">Stockholm</button>
+          <button class="btn-primary" id="btn-gbg">Göteborg</button>
+        </div>
+        <!-- Selct för att välja typ av digram. -->
+        <div class="select-wrapper">
+          <label for="chart-select">Välj diagramtyp</label>
+          <select name="charttype" id="chart-select">
+            <option value="line">Linje</option>
+            <option value="bar">Stapel</option>
+          </select>
+        </div>
+      </nav>
+      <!-- Error ligger mellan nav och main för att den inte ska ta upp plats i dessa element. -->
+      <div id="error"></div>
+      <div class="chart-container">
+        <canvas id="canvas-chart"></canvas>
+      </div>
+    </div>
+    <!-- Laddar in Chart.js direkt från CDNJS. Försökte först med npm men fick inte till det. Input från sambo om att länka in script istället. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script src="apiurl.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
